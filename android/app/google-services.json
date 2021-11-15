@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "461742730769",
+    "firebase_url": "https://indiscan-3a2e8-default-rtdb.firebaseio.com",
+    "project_id": "indiscan-3a2e8",
+    "storage_bucket": "indiscan-3a2e8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461742730769:android:0ef8e6a91fa41ceb5b8bb0",
+        "android_client_info": {
+          "package_name": "com.IndiscanLLC.indiscan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461742730769-ni7arr9qpqpqjfakji61l17c2dujn8iq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.IndiscanLLC.indiscan",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "461742730769-ph0fb8rebss4ld6krbm7ad6ogpir29hf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.IndiscanLLC.indiscan",
+            "certificate_hash": "4cb0f235bedd272375d9d01c76f51a81c900076a"
+          }
+        },
+        {
+          "client_id": "461742730769-6e5juop75a79n6rirtgqm6uufllpnat3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_yhYzkLrr8mtCe14b9TgwOd8YJBXydWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461742730769-6e5juop75a79n6rirtgqm6uufllpnat3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "461742730769-4138aflsv84qt35k08hk5fi3o2kqh05a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.indiscanllc.indiscanvendor"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461742730769:android:4f8e5332f9db23aa5b8bb0",
+        "android_client_info": {
+          "package_name": "com.IndiscanLLC.indiscanvendor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461742730769-6e5juop75a79n6rirtgqm6uufllpnat3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_yhYzkLrr8mtCe14b9TgwOd8YJBXydWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461742730769-6e5juop75a79n6rirtgqm6uufllpnat3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "461742730769-4138aflsv84qt35k08hk5fi3o2kqh05a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.indiscanllc.indiscanvendor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

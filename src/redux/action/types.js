@@ -1,0 +1,3 @@
+export const USER_INFO = 'USER_INFO';
+export const UPDATE_BALANCE = 'UPDATE_BALANCE';
+export const UPDATE_RECENT = 'UPDATE_RECENT';
