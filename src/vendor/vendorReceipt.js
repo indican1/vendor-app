@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
         shadowRadius: 2.62, elevation: 10, justifyContent: 'center', alignItems: 'center',  borderTopRightRadius: 30, borderTopLeftRadius: 30
     },
     img: {
-        width: 70, height: 70, alignSelf: 'center', resizeMode: 'contain', tintColor: COLORS.themeColor
+        width: 70, height: 70, alignSelf: 'center', resizeMode: 'contain'
     }
 })
 

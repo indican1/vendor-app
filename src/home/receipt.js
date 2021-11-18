@@ -200,7 +200,7 @@ const Receipt = ({ route, navigation }) => {
 const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: COLORS.white },
 
-    icon: { width: 120, height: 120, resizeMode: 'contain', alignSelf: 'center', tintColor: COLORS.themeColor },
+    icon: { width: 120, height: 120, resizeMode: 'contain', alignSelf: 'center' },
 
     label: { marginLeft: 20, fontFamily: FONTS.opneSans_SemiBold, color: COLORS.color2, },
 
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     },
 
     img: {
-        width: 70, height: 70, alignSelf: 'center', resizeMode: 'contain', tintColor: COLORS.themeColor
+        width: 70, height: 70, alignSelf: 'center', resizeMode: 'contain'
     }
 })
 

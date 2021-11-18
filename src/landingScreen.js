@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: COLORS.white },
     firstView: { flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: height/7 },
     secondView: { flex: 1, alignItems: 'center', marginTop: height/12 },
-    logo: { width: 120, height: 60, marginTop: 30, resizeMode: 'contain', tintColor: COLORS.themeColor},
+    logo: { width: 120, height: 60, marginTop: 30, resizeMode: 'contain'},
     txtWelcome: {color: COLORS.themeColor, fontSize: 23, marginTop: 5, fontFamily: FONTS.opneSans_SemiBold},
     backGroundImage: { flex: 1, width: width-40, height: height/4, resizeMode: 'contain' },
 })

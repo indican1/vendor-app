@@ -20,7 +20,7 @@ const AppHeader = ({ navigation, ...props }) => (
             </TouchableOpacity>
             {
                 props.title === 'IndiScan' ?
-                <Image style={{width: 120, height: 30, resizeMode: 'contain', tintColor: COLORS.white}}
+                <Image style={{width: 120, height: 30, resizeMode: 'contain'}}
                     source={IMAGES.logo}
                 /> :
                 <Text style={[styles.title]}>{props.title}</Text>

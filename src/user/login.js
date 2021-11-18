@@ -74,7 +74,7 @@ const Login = ({ navigation }) => {
             <View style={{ flex: 1, alignItems: 'center', marginTop: 130 }}>
 
                 <Image 
-                    style={{width: 120, height: 55, resizeMode: 'contain', tintColor: COLORS.color1}}
+                    style={{width: 120, height: 55, resizeMode: 'contain'}}
                     source={IMAGES.logo}
                 />
                 <Text style={styles.title}>Welcome</Text>

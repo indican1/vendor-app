@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
     width: 150,
     height: 100,
     resizeMode: 'contain',
-    tintColor: COLORS.white
   },
   title: {
     marginTop: 20
