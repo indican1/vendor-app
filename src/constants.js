@@ -21,6 +21,8 @@ export const CHARGE_USER = 'vendor/charge_customer';
 
 // user face verification
 export const USER_FACE_VERIFY = 'vendor/face_verification';
+export const JUST_USER_VERIFY = 'vendor/verifyuserbyface';
+
 // for transaction history
 export const VENDOR_TRANSACTION_HISTORY = 'vendor/transactions';
 export const USER_TRANSACTION_HISTORY = 'users/transactions';
@@ -29,6 +31,8 @@ export const TRANSACTION_HISTORY_DETAIL = 'vendor/transaction';
 
 // locate vendors
 export const LOCATE_VENDORS = 'users/agentlocator';
+export const GET_PROMOTIONS = 'promotions'
+
 
 
 

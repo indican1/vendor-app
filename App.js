@@ -28,6 +28,7 @@ import TransactionHistory from "./src/home/transactionHistory";
 import ForgotPin from "./src/user/forgotPin";
 import WidthDrawAmount from "./src/vendor/widthDraw";
 import SplashScreen from "./src/splashScreen";
+import VerifyUser from "./src/vendor/verifyUser";
 
 const Stack = createStackNavigator();
 
@@ -137,6 +138,10 @@ const HomeStack = () => {
       <Stack.Screen
         name='forgotPin'
         component={ForgotPin}
+      />
+      <Stack.Screen 
+        name='verifyUser'
+        component={VerifyUser}
       />
     </Stack.Navigator>
   )

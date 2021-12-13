@@ -1,5 +1,5 @@
 import React, { } from 'react';
-import { View, Text, Dimensions, StyleSheet, Alert, Share } from 'react-native';
+import { View, Text, Dimensions, StyleSheet, Alert, Share, Platform } from 'react-native';
 import { DrawerContentScrollView, DrawerItem, } from '@react-navigation/drawer';
 import { Avatar, Drawer } from 'react-native-paper';
 import { useSelector } from 'react-redux';
@@ -94,8 +94,19 @@ const SideMenu = (props) => {
                     <Drawer.Section style={{ marginTop: 10 }}>
                         <DrawerItem
                             onPress={() => {
-                                Share.share({
-                                    message: 'There will be app link'
+                                props.navigation.navigate('verifyUser')
+                            }}
+                            label='Verify User'
+                        />
+                    </Drawer.Section>
+
+                    <Drawer.Section style={{ marginTop: 10 }}>
+                        <DrawerItem
+                            onPress={ async () => {
+                                await Share.share({
+                                    message: Platform.OS === 'android' ? 
+                                    'https://play.google.com/store/apps/details?id=com.IndiscanLLC.indiscanvendor' : 
+                                    'There will be app link'
                                 })
                                 props.navigation.closeDrawer()
                             }}

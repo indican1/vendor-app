@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, ActivityIndicator, TouchableOpacity, Keyboard, Image } from 'react-native';
+import { View, StyleSheet, ActivityIndicator, TouchableOpacity, Keyboard, Image, Linking } from 'react-native';
 import { Text,  } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useDispatch } from 'react-redux';
@@ -8,7 +8,6 @@ import { setUser } from '../redux/action/action';
 import { BASE_URL, FONTS, IMAGES, SIGNIN } from '../constants';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import AuthHeader from '../components/authHeader';
 import CustomButton from '../components/customButton';
 import CustomInput from '../components/customInput';
 import Toast from 'react-native-toast-message';
@@ -102,7 +101,9 @@ const Login = ({ navigation }) => {
                     <CustomButton title='Proceed' backgroundColor={COLORS.themeColor} titleColor={COLORS.white} disabled={phoneNo === '' || phoneNo.length < 11 
                                 || code === '' || code.length < 6 ? true : false} callFunction={() => login()} />
                 }
-                <Text style={[styles.title, { fontSize: 10, marginTop: 5, textAlign: 'center' }]}>
+                <Text style={[styles.title, { fontSize: 10, marginTop: 5, textAlign: 'center' }]}
+                    onPress={()=>Linking.openURL('https://indiscanprivacypolicy.com/')}
+                    >
                     By proceeding you agree to our <Text style={{ color: COLORS.themeColor, fontWeight: 'bold' }}>Terms & Conditions</Text>
                 </Text>
             </View>

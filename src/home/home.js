@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { View, StyleSheet, TouchableOpacity, Dimensions, Image, Share } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, Linking, View, StyleSheet, TouchableOpacity, Dimensions, Image, Share, Platform } from 'react-native';
 import { Text } from 'react-native-paper';
 import AppHeader from '../components/header';
 import { COLORS } from '../assets/colors';
@@ -7,7 +7,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { recentActivity } from '../redux/action/action';
 import { KeyboardAwareScrollView } from '@codler/react-native-keyboard-aware-scroll-view'
-import { FONTS } from '../constants';
+import { BASE_URL, FILE_URL, FONTS, GET_PROMOTIONS } from '../constants';
+import axios from 'axios';
 
 
 
@@ -15,29 +16,9 @@ const { width, height } = Dimensions.get('window');
 
 const Home = ({ navigation }) => {
 
-    const array = [
-        {
-            'id': 1,
-            'img': require('../assets/images/1.jpeg')
-        },
-        {
-            'id': 2,
-            'img': require('../assets/images/2.jpeg')
-        },
-        {
-            'id': 3,
-            'img': require('../assets/images/3.jpeg')
-        },
-        {
-            'id': 4,
-            'img': require('../assets/images/4.jpeg')
-        },
-        {
-            'id': 5,
-            'img': require('../assets/images/5.jpeg')
-        }
-    ]
-
+    const [isLoading, setIsLoading] = useState(true)
+    const [promotionsList, setPromotionsList] = useState([])
+   
     const dispatch = useDispatch()
 
     const { user, recentData } = useSelector(state => ({
@@ -45,13 +26,36 @@ const Home = ({ navigation }) => {
         recentData: state.userReducer.recentArray
     }));
 
-    // useEffect(() => {
-    //     const data = await AsyncStorage.getItem('RECENTDATA');
-    //     if (data != null || data != undefined) {
-    //         let mData = JSON.parse(data)
-    //         dispatch(recentActivity(mData))
-    //     }
-    // }, [])
+    useEffect(() => {
+        // const data = await AsyncStorage.getItem('RECENTDATA');
+        // if (data != null || data != undefined) {
+        //     let mData = JSON.parse(data)
+        //     dispatch(recentActivity(mData))
+        // }
+        _getPromotions()
+    }, [])
+
+    const _getPromotions = () => {
+        AsyncStorage.getItem('token').then(token => {
+            if (token != null) {
+                axios.get(`${BASE_URL}${GET_PROMOTIONS}`, {
+                    headers: { Authorization: token }
+                }).then(response => {
+                    if (response.data.msg === 'success') {
+                        setPromotionsList(response.data.promotions)
+                        setIsLoading(false)
+                    } else {
+                        setIsLoading(false)
+                    }
+
+                }).catch(error => {
+                    setIsLoading(false)
+                })
+            } else {
+                setIsLoading(false)
+            }
+        });
+    }
 
     return (
         <View style={styles.container}>
@@ -103,7 +107,9 @@ const Home = ({ navigation }) => {
                     <TouchableOpacity style={styles.trascationCard}
                         onPress={async () => {
                             await Share.share({
-                                message: 'There will be app link'
+                                message: Platform.OS === 'android' ? 
+                                'https://play.google.com/store/apps/details?id=com.IndiscanLLC.indiscanvendor' : 
+                                'There will be app link'
                             })
                         }}
                     >
@@ -118,7 +124,7 @@ const Home = ({ navigation }) => {
                             navigation.navigate('chargeOptions')
                         }}
                     >
-                        <Image style={[styles.icon, {tintColor: COLORS.color3}]}
+                        <Image style={[styles.icon, { tintColor: COLORS.color3 }]}
                             source={require('../assets/images/chargeUser.png')}
                         />
                         <Text style={styles.tabsTitle}>Charge User</Text>
@@ -142,13 +148,26 @@ const Home = ({ navigation }) => {
                         showsHorizontalScrollIndicator={false}
                     >
                         {
-                            array.map((item, index) => {
+                            promotionsList.map((item, index) => {
                                 return (
-                                    <View key={index} style={[styles.promotionCard, { marginLeft: index > 0 ? 10 : 25, marginRight: index === array.length - 1 ? 10 : 0 }]}>
-                                        <Image style={styles.promotionImg}
-                                            source={item.img}
-                                        />
-                                    </View>
+                                    <>
+                                        {
+                                            isLoading ?
+                                                <View style={{ justifyContent: 'center', alignItems: 'center', width: width }}>
+                                                    <ActivityIndicator color={COLORS.themeColor} size='large' />
+                                                </View> :
+                                                <TouchableOpacity key={item._id} style={[styles.promotionCard, {
+                                                    marginLeft: index > 0 ? 10 : 25,
+                                                    marginRight: index === promotionsList.length - 1 ? 10 : 0
+                                                }]}
+                                                    onPress={() => Linking.openURL(item.url)}
+                                                >
+                                                    <Image style={styles.promotionImg}
+                                                        source={{ uri: FILE_URL + item.image }}
+                                                    />
+                                                </TouchableOpacity>
+                                        }
+                                    </>
                                 )
                             })
                         }
