@@ -132,7 +132,7 @@ const TransactionHistory = ({ navigation }) => {
                                 </View>
                                 <View style={{ flex: 1, alignItems: 'flex-end' }}>
                                     <Text style={{ color: item.trx_type === 'credit' ? COLORS.green : COLORS.red, fontFamily: FONTS.opneSans_SemiBold }}>$ {parseFloat(item.amount).toFixed(2)}</Text>
-                                    <Text style={styles.date}>{moment(item.createdAt).format('hh:ss A')}</Text>
+                                    <Text style={styles.date}>{moment(item.createdAt).format('hh:mm A')}</Text>
                                 </View>
                                 <TouchableOpacity
                                     onPress={() => getTransactionHistory(item)}
@@ -173,7 +173,7 @@ const TransactionHistory = ({ navigation }) => {
                         {
                             !isHistoryDtl ? null :
                                 <View style={{ flex: 1, marginLeft: 30, marginTop: 10 }}>
-                                    <Text>{moment(userInfo.date).format('DD/MM/Y') + '  ' + moment(userInfo.date).format('hh:ss A')}</Text>
+                                    <Text>{moment(userInfo.date).format('DD/MM/Y') + '  ' + moment(userInfo.date).format('hh:mm A')}</Text>
                                     <Text>ID# {userInfo._id}</Text>
 
                                     <Text style={styles.historyTitle}>{userInfo.trx_type === 'credit' ? 'Sent by' : 'Sent to'}</Text>

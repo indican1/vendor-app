@@ -36,7 +36,7 @@ const Receipt = ({ route, navigation }) => {
         const token = await AsyncStorage.getItem("token")
         axios.post(`${BASE_URL}${SHARE_BALANCE}`, {
             receiver_id: data.receiver_id,
-            amount: data.amount,
+            amount: parseFloat(data.amount),
             pin_code: pin,
             description: description,
             transfer_to: "user"

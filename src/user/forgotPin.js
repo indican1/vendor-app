@@ -29,7 +29,8 @@ const ForgotPin = ({ route, navigation }) => {
     const checkUser = () => {
         setIsLoading(true)
         axios.post(`${BASE_URL}${CHECK_USER}`, {
-            phone_number: phoneNo
+            phone_number: phoneNo,
+            user_type: 'vendor'
         }).then(response => {
             if (response.data.status === 1) {
                 Toast.show({

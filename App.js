@@ -153,7 +153,7 @@ const DrawerStack = ({ props }) => {
   return (
     <Drawer.Navigator drawerPosition='left'
       drawerContent={props => <SideMenu {...props} />}
-      screenOptions={{ gestureEnabled: props._id != '' ? true : false }}
+      screenOptions={{ swipeEnabled: props._id != '' ? true : false }}
     >
       {props._id != '' ? (
         <Drawer.Screen

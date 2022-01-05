@@ -54,7 +54,7 @@ const SednCash = ({ navigation }) => {
                     icon='call' marginTop={10}
                 />
 
-                <CustomInput hint='Enter amount' value={amount} keyboardType='phone-pad' maxLength={15}
+                <CustomInput hint='Enter amount' value={amount} keyboardType='numeric' maxLength={15}
                     onChange={(val) => setAmount(val)} secureTextEntry={false} 
                     icon='wallet' marginTop={10}
                 />

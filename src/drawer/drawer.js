@@ -1,5 +1,5 @@
 import React, { } from 'react';
-import { View, Text, Dimensions, StyleSheet, Alert, Share, Platform } from 'react-native';
+import { View, Text, Dimensions, StyleSheet, Alert, Share, Platform, Linking } from 'react-native';
 import { DrawerContentScrollView, DrawerItem, } from '@react-navigation/drawer';
 import { Avatar, Drawer } from 'react-native-paper';
 import { useSelector } from 'react-redux';
@@ -83,8 +83,9 @@ const SideMenu = (props) => {
                     </Drawer.Section>
 
                     <Drawer.Section style={{ marginTop: 10 }}>
-                        <DrawerItem
+                    <DrawerItem
                             onPress={() => {
+                                Linking.openURL('http://indiscan.com/contact-us/')
                                 props.navigation.closeDrawer()
                             }}
                             label='Customer Support'
@@ -111,6 +112,15 @@ const SideMenu = (props) => {
                                 props.navigation.closeDrawer()
                             }}
                             label='Invite User'
+                        />
+                    </Drawer.Section>
+                    <Drawer.Section style={{ marginTop: 10 }}>
+                        <DrawerItem
+                            onPress={() => {
+                               props.navigation.navigate('locateVendors')
+                                props.navigation.closeDrawer()
+                            }}
+                            label='Locate Vendors'
                         />
                     </Drawer.Section>
                 </View>
