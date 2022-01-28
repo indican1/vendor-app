@@ -122,6 +122,18 @@ const SideMenu = (props) => {
                             label='Locate Vendors'
                         />
                     </Drawer.Section>
+
+                    <Drawer.Section style={{ marginTop: 10 }}>
+                        <DrawerItem
+                            onPress={() => {
+                                props.navigation.navigate('logs',{
+                                    screen: 'drawer'
+                                })
+                            }}
+                            label='Verification Logs'
+                        />
+                    </Drawer.Section>
+
                 </View>
 
 

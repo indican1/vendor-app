@@ -56,6 +56,7 @@ class VerifyUser extends Component {
     };
 
     takePicture = async () => {
+        this.setState({isImgLoading: true})
         if (this.camera && !this.state.takingPic) {
             let options = {
                 quality: 0.85,
@@ -83,7 +84,6 @@ class VerifyUser extends Component {
     };
 
     uploadImageToFirebase = async (imgUri) => {
-        this.setState({isImgLoading: true})
         const uri  = imgUri;
         const filename = uri.substring(uri.lastIndexOf('/') + 1);
         const uploadUri = Platform.OS === 'ios' ? uri.replace('file://', '') : uri;
@@ -181,11 +181,11 @@ class VerifyUser extends Component {
 
                             <View style={styles.infoTitleView}>
                                 <Text style={styles.infoTitle}>Account Status</Text>
-                                <Text style={styles.infoTitle}>Available Balance</Text>
+                                <Text style={styles.infoTitle}></Text>
                             </View>
                             <View style={styles.infoVlaueView}>
                                 <Text style={styles.infoVlaue}>{result.account_status}</Text>
-                                <Text style={styles.infoVlaue}>{result.wallet}</Text>
+                                <Text style={styles.infoVlaue}></Text>
                             </View>
                         </View>
                     }
